@@ -1,0 +1,63 @@
+# Generate a .gitignore file with recommended patterns for the Image Captioning repo
+gitignore_content = """
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+.ENV/
+
+# IDE and Editor folders
+.idea/
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Models and checkpoints
+models/
+*.pkl
+
+# Vocabulary pickle
+vocab.pkl
+
+# Logs and temporary files
+*.log
+*.txt
+
+# OS metadata
+.DS_Store
+Thumbs.db
+"""
+
+# Write the .gitignore file
+with open('.gitignore', 'w') as f:
+    f.write(gitignore_content.lstrip())
+
+# Display the content back to the user
+print("Generated .gitignore content:\n")
+print(gitignore_content)
