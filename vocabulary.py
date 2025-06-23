@@ -46,7 +46,7 @@ class Vocabulary(object):
             self.build_vocab()
             with open(self.vocab_file, 'wb') as f:
                 pickle.dump(self, f)
-        
+
     def build_vocab(self):
         """Populate the dictionaries for converting tokens to integers (and vice-versa)."""
         self.init_vocab()
@@ -70,6 +70,10 @@ class Vocabulary(object):
 
     def add_captions(self):
         """Loop over training captions and add all tokens to the vocabulary that meet or exceed the threshold."""
+        # Check if annotations file exists
+        if not os.path.exists(self.annotations_file):
+            raise FileNotFoundError(f"Annotations file not found: {self.annotations_file}")
+
         coco = COCO(self.annotations_file)
         counter = Counter()
         ids = coco.anns.keys()
